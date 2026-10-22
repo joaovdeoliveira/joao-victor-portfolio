@@ -1,32 +1,28 @@
-import { Toaster } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { Route, Router, Switch } from "wouter";
-import ErrorBoundary from "./components/ErrorBoundary";
-import { ThemeProvider } from "./contexts/ThemeContext";
-import Home from "./pages/Home";
+import { About } from "./components/About";
+import { Contact } from "./components/Contact";
+import { Education } from "./components/Education";
+import { Experience } from "./components/Experience";
+import { Footer } from "./components/Footer";
+import { Hero } from "./components/Hero";
+import { Navbar } from "./components/Navbar";
+import { Projects } from "./components/Projects";
+import { TechStack } from "./components/TechStack";
+import { PreferencesProvider } from "./lib/preferences";
 
-function AppRouter() {
+export default function App() {
   return (
-    <Router base="/joao-victor-portfolio/">
-      <Switch>
-        <Route path="/" component={Home} />
-        {/* The default route is now implicitly handled by the Home component at path "/" */}
-      </Switch>
-    </Router>
+    <PreferencesProvider>
+      <Navbar />
+      <main>
+        <Hero />
+        <TechStack />
+        <About />
+        <Experience />
+        <Projects />
+        <Education />
+        <Contact />
+      </main>
+      <Footer />
+    </PreferencesProvider>
   );
 }
-
-function App() {
-  return (
-    <ErrorBoundary>
-      <ThemeProvider defaultTheme="light" switchable>
-        <TooltipProvider>
-          <Toaster />
-          <AppRouter />
-        </TooltipProvider>
-      </ThemeProvider>
-    </ErrorBoundary>
-  );
-}
-
-export default App;

@@ -1,26 +1,50 @@
 <!doctype html>
-<html lang="en">
-
+<html lang="pt-BR" class="dark">
   <head>
     <script>
-      if (location.pathname.endsWith('/404.html')) {
-        location.replace('/joao-victor-portfolio/');
-    }
+      if (location.pathname.endsWith("/404.html")) {
+        location.replace("/joao-victor-portfolio/");
+      }
+      // Aplica o tema salvo antes da primeira pintura para evitar o flash.
+      try {
+        if (localStorage.getItem("theme") === "light") {
+          document.documentElement.classList.remove("dark");
+        }
+      } catch (e) {}
     </script>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>João Victor de Oliveira · Desenvolvedor Fullstack</title>
     <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-    <title>João Victor - Portfolio</title>    
+      name="description"
+      content="Desenvolvedor Fullstack em São Paulo com foco em backend Java, mensageria e sistemas críticos para o setor financeiro."
+    />
+    <meta name="author" content="João Victor de Oliveira" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="João Victor de Oliveira · Desenvolvedor Fullstack"
+    />
+    <meta
+      property="og:description"
+      content="Backend Java, mensageria e sistemas críticos para o setor financeiro."
+    />
+    <meta
+      property="og:url"
+      content="https://joaovdeoliveira.github.io/joao-victor-portfolio/"
+    />
+    <meta name="theme-color" content="#0a0a0b" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
-
 </html>

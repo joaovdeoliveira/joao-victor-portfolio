@@ -1,39 +1,127 @@
-export default function Hero() {
+import { motion, useReducedMotion } from "framer-motion";
+import { ArrowDownRight, Download } from "lucide-react";
+import { FaLinkedin } from "react-icons/fa";
+import { SiGithub } from "react-icons/si";
+import { site } from "@/data/site";
+import { usePreferences } from "@/lib/preferences";
+import Threads from "./backgrounds/Threads";
+
+export function Hero() {
+  const { t, theme } = usePreferences();
+  const reduce = useReducedMotion();
+
+  const fadeUp = (delay: number) => ({
+    initial: reduce ? false : { opacity: 0, y: 12 },
+    animate: { opacity: 1, y: 0 },
+    transition: {
+      duration: 0.6,
+      delay,
+      ease: [0.21, 0.47, 0.32, 0.98] as const,
+    },
+  });
+
   return (
     <section
-      className="relative pt-20 pb-32 md:pt-32 md:pb-48 overflow-hidden"
-      id="hero"
+      id="top"
+      className="relative isolate flex min-h-[100svh] items-end overflow-hidden"
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="md:w-3/4">
-          <p className="text-primary font-medium tracking-wide uppercase mb-4 animate-fade-in-up">
-            Hello, I'm João Victor
-          </p>
-          <h1 className="font-serif text-5xl md:text-7xl font-bold leading-tight mb-6 text-gray-900 dark:text-white">
-            Full Stack <br /> <span className="text-primary italic">Developer</span>
-          </h1>
-          <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-10 max-w-2xl leading-relaxed">
-            Specializing in robust backend architectures, microservices, and
-            financial ecosystems. Transforming complex requirements into
-            scalable solutions.
-          </p>
-          <div className="flex flex-wrap gap-4">
+      <div className="absolute inset-0 -z-10" aria-hidden="true">
+        <Threads
+          color={theme === "dark" ? "#e4e4e7" : "#18181b"}
+          amplitude={1.2}
+          distance={0.2}
+          enableMouseInteraction
+          opacity={theme === "dark" ? 0.55 : 0.4}
+          fade={0.15}
+        />
+        <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-background via-background/80 to-transparent" />
+      </div>
+
+      <div className="container-page pt-32 pb-16 md:pb-24">
+        <motion.p
+          {...fadeUp(0)}
+          className="mb-8 inline-flex items-center gap-2 rounded-full border border-border bg-background/60 px-3 py-1 text-xs text-muted backdrop-blur"
+        >
+          <span className="relative flex size-2">
+            <span className="absolute inline-flex size-full animate-ping rounded-full bg-accent opacity-60 motion-reduce:hidden" />
+            <span className="relative inline-flex size-2 rounded-full bg-accent" />
+          </span>
+          {t.hero.status}
+        </motion.p>
+
+        <motion.p {...fadeUp(0.05)} className="eyebrow mb-4">
+          {t.hero.eyebrow}
+        </motion.p>
+
+        <motion.h1
+          {...fadeUp(0.1)}
+          className="max-w-3xl text-4xl font-semibold tracking-tight text-balance sm:text-5xl md:text-6xl lg:text-7xl"
+        >
+          {t.hero.title}
+        </motion.h1>
+
+        <motion.p
+          {...fadeUp(0.2)}
+          className="mt-6 max-w-xl text-base leading-relaxed text-muted md:text-lg"
+        >
+          {t.hero.lead}
+        </motion.p>
+
+        <motion.div
+          {...fadeUp(0.3)}
+          className="mt-10 flex flex-wrap items-center gap-3"
+        >
+          <a
+            href="#contato"
+            className="inline-flex h-11 items-center rounded-md bg-foreground px-5 text-sm font-medium text-background transition-opacity hover:opacity-85"
+          >
+            {t.hero.primaryCta}
+          </a>
+          <a
+            href="#experiencia"
+            className="inline-flex h-11 items-center gap-2 rounded-md border border-border-strong bg-background/40 px-5 text-sm font-medium backdrop-blur transition-colors hover:bg-foreground/5"
+          >
+            {t.hero.secondaryCta}
+            <ArrowDownRight className="size-4" />
+          </a>
+          {site.cvPath && (
             <a
-              className="bg-primary text-white px-8 py-3 rounded-full font-medium hover:bg-opacity-90 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-              href="#contact"
+              href={`${import.meta.env.BASE_URL}${site.cvPath}`}
+              download
+              className="inline-flex h-11 items-center gap-2 rounded-md px-3 text-sm font-medium text-muted transition-colors hover:text-foreground"
             >
-              Get in Touch
+              <Download className="size-4" />
+              {t.hero.cvCta}
+            </a>
+          )}
+
+          <span
+            className="mx-1 hidden h-6 w-px bg-border-strong sm:block"
+            aria-hidden="true"
+          />
+
+          <div className="flex items-center gap-1">
+            <a
+              href={site.github}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="GitHub"
+              className="grid size-11 place-items-center rounded-md text-muted transition-colors hover:text-foreground"
+            >
+              <SiGithub className="size-5" />
             </a>
             <a
-              className="border border-gray-300 dark:border-gray-600 px-8 py-3 rounded-full font-medium hover:border-primary hover:text-primary transition-all dark:hover:text-primary dark:hover:border-primary"
-              href="#projects"
+              href={site.linkedin}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="LinkedIn"
+              className="grid size-11 place-items-center rounded-md text-muted transition-colors hover:text-foreground"
             >
-              View Projects
+              <FaLinkedin className="size-5" />
             </a>
           </div>
-        </div>
+        </motion.div>
       </div>
-      <div className="absolute top-0 right-0 -mt-20 -mr-20 w-96 h-96 bg-primary opacity-10 blur-3xl rounded-full pointer-events-none"></div>
     </section>
   );
 }

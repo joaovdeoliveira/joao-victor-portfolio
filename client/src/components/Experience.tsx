@@ -1,64 +1,74 @@
-export default function Experience() {
-  const experiences = [
-    {
-      title: "Desenvolvedor Full Stack",
-      company: "Fóton Informática",
-      location: "São Paulo, Brasil",
-      period: "2023 — Present",
-      highlights: [
-        "Integração de Microsserviços: Responsável pela integração e comunicação eficiente entre diversos microsserviços, utilizando Java com Quarkus e Spring Boot, bancos de dados PostgreSQL e Redis em um ambiente de CI/CD.",
-        "Gerenciamento de APIs: Desenvolvimento e consumo de APIs RESTful para comunicação entre sistemas e integração de serviços.",
-        "Arquitetura Orientada a Eventos (RabbitMQ): Implementei e otimizei filas para processos assíncronos, como a consulta de extratos de FGTS (+90 dias) e o envio de códigos de verificação por SMS.",
-        "Implementação e manutenção de ambientes de teste com contêineres, utilizando Docker.",
-      ],
-    },
-    {
-      title: "Aspirante a Oficial",
-      company: "Exército Brasileiro",
-      location: "Santana/SP, Brasil",
-      period: "01/2023 — 12/2023",
-      highlights: [
-        "Apoio à equipe na realização de tarefas diversas conforme a demanda, garantindo a agilidade e eficiência.",
-        "Organização do trabalho diário, buscando otimizar o tempo e evitar imprevistos.",
-        "Solução de problemas cotidianos, tomando decisões com segurança e autonomia.",
-      ],
-    },
-  ];
+import { usePreferences } from "@/lib/preferences";
+import { Reveal } from "./Reveal";
+import { Section } from "./Section";
+
+export function Experience() {
+  const { t } = usePreferences();
+  const { experience } = t;
 
   return (
-    <section className="py-20" id="experience">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="font-serif text-4xl font-bold mb-16 text-center">
-          Experiência Profissional
-        </h2>
-        <div className="relative border-l-2 border-gray-200 dark:border-gray-700 ml-3 md:ml-6 space-y-16">
-          {experiences.map((exp, index) => (
-            <div key={index} className="relative pl-8 md:pl-12 group">
-              <span className="absolute -left-[9px] top-0 h-5 w-5 rounded-full bg-primary border-4 border-white dark:border-gray-900"></span>
-              <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-2">
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white">
-                  {exp.title}
+    <Section id="experiencia" label={experience.label} title={experience.title}>
+      <ol className="space-y-16">
+        {experience.items.map(item => (
+          <li key={item.company}>
+            <Reveal className="grid gap-4 md:grid-cols-[12rem_minmax(0,1fr)] md:gap-10">
+              <div className="font-mono text-xs text-muted md:pt-1.5">
+                <p className="text-foreground">
+                  {item.current
+                    ? `${item.period} – ${experience.present}`
+                    : item.period}
+                </p>
+                <p className="mt-1">{item.location}</p>
+              </div>
+
+              <div>
+                <h3 className="text-xl font-semibold tracking-tight">
+                  {item.role}
+                  <span className="text-muted"> · {item.company}</span>
                 </h3>
-                <span className="text-sm font-medium text-primary px-3 py-1 bg-primary/10 rounded-full mt-2 sm:mt-0 w-fit">
-                  {exp.period}
-                </span>
+                <ul className="mt-4 space-y-2.5 text-muted">
+                  {item.highlights.map(highlight => (
+                    <li
+                      key={highlight}
+                      className="relative pl-5 leading-relaxed"
+                    >
+                      <span
+                        className="absolute top-[0.7em] left-0 h-px w-2.5 bg-subtle"
+                        aria-hidden="true"
+                      />
+                      {highlight}
+                    </li>
+                  ))}
+                </ul>
+
+                {item.clients && (
+                  <div className="mt-8">
+                    <p className="eyebrow mb-3">{experience.clientsLabel}</p>
+                    <div className="grid gap-3 sm:grid-cols-2">
+                      {item.clients.map(client => (
+                        <article
+                          key={client.name}
+                          className="rounded-lg border border-border bg-card p-5"
+                        >
+                          <h4 className="font-medium">{client.name}</h4>
+                          <p className="mt-0.5 text-sm text-subtle">
+                            {client.summary}
+                          </p>
+                          <ul className="mt-4 space-y-2 text-sm leading-relaxed text-muted">
+                            {client.highlights.map(highlight => (
+                              <li key={highlight}>{highlight}</li>
+                            ))}
+                          </ul>
+                        </article>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
-              <div className="mb-4">
-                <span className="text-lg font-medium text-gray-700 dark:text-gray-300">
-                  {exp.company}
-                </span>
-                <span className="mx-2 text-gray-400">|</span>
-                <span className="text-gray-500 text-sm">{exp.location}</span>
-              </div>
-              <ul className="space-y-3 text-gray-600 dark:text-gray-400 list-disc pl-5 marker:text-primary">
-                {exp.highlights.map((highlight, idx) => (
-                  <li key={idx}>{highlight}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+            </Reveal>
+          </li>
+        ))}
+      </ol>
+    </Section>
   );
 }
