@@ -35,7 +35,15 @@ export function TechStack() {
   const { t } = usePreferences();
 
   return (
-    <section aria-labelledby="stack-title" className="pb-20 md:pb-28">
+    <section
+      aria-labelledby="stack-title"
+      className="relative bg-background pt-12 pb-20 md:pt-16 md:pb-28"
+    >
+      {/* Dissolve as linhas do fundo do hero em vez de cortá-las. */}
+      <div
+        className="pointer-events-none absolute inset-x-0 bottom-full h-40 bg-gradient-to-b from-transparent to-background"
+        aria-hidden="true"
+      />
       <div className="container-page">
         <Reveal>
           <h2 id="stack-title" className="eyebrow mb-6 text-center">

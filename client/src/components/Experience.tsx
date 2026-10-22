@@ -8,7 +8,12 @@ export function Experience() {
   const { experience } = t;
 
   return (
-    <Section id="experiencia" label={experience.label} title={experience.title}>
+    <Section
+      id="experiencia"
+      label={experience.label}
+      title={experience.title}
+      className="bg-transparent"
+    >
       <ol className="space-y-16">
         {experience.items.map(item => (
           <li key={item.company}>

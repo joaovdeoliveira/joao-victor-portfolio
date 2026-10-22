@@ -29,7 +29,10 @@ export function Contact() {
     "inline-flex h-11 items-center gap-2 rounded-md border border-border-strong px-4 text-sm font-medium transition-colors hover:bg-foreground/5";
 
   return (
-    <section id="contato" className="border-t border-border py-24 md:py-32">
+    <section
+      id="contato"
+      className="border-t border-border bg-background py-24 md:py-32"
+    >
       <Reveal className="container-page">
         <p className="eyebrow mb-3">{t.contact.label}</p>
         <h2 className="text-4xl font-semibold tracking-tight md:text-6xl">

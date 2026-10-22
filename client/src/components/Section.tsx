@@ -20,7 +20,10 @@ export function Section({
   return (
     <section
       id={id}
-      className={cn("border-t border-border py-20 md:py-28", className)}
+      className={cn(
+        "border-t border-border bg-background py-20 md:py-28",
+        className
+      )}
     >
       <div className="container-page">
         <Reveal>

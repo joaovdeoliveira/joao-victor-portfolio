@@ -6,7 +6,7 @@ export function Footer() {
   const { t } = usePreferences();
 
   return (
-    <footer className="border-t border-border">
+    <footer className="border-t border-border bg-background">
       <div className="container-page flex flex-col gap-3 py-8 text-xs text-subtle sm:flex-row sm:items-center sm:justify-between">
         <p>
           © {new Date().getFullYear()} {site.name}. {t.footer.rights}
