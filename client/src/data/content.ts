@@ -64,9 +64,8 @@ const pt: Content = {
       {
         company: "Fóton Informática",
         role: "Analista e Desenvolvedor de Software",
-        period: "2023",
+        period: "07/2023 – 04/2026",
         location: "São Paulo, SP",
-        current: true,
         highlights: [
           "Integração entre microsserviços em Java (Quarkus e Spring Boot) com PostgreSQL e Redis, em pipeline de CI/CD.",
           "Filas no RabbitMQ para processos assíncronos, como a consulta de extratos do FGTS acima de 90 dias e o envio de códigos de verificação por SMS.",
@@ -212,9 +211,8 @@ const en: Content = {
       {
         company: "Fóton Informática",
         role: "Software Analyst and Developer",
-        period: "2023",
+        period: "07/2023 – 04/2026",
         location: "São Paulo, Brazil",
-        current: true,
         highlights: [
           "Integration between Java microservices (Quarkus and Spring Boot) backed by PostgreSQL and Redis, in a CI/CD pipeline.",
           "RabbitMQ queues for async workloads, such as FGTS statements older than 90 days and SMS verification codes.",
