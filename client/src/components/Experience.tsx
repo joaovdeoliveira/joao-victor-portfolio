@@ -1,4 +1,5 @@
 import { usePreferences } from "@/lib/preferences";
+import { cn } from "@/lib/utils";
 import { Reveal } from "./Reveal";
 import { Section } from "./Section";
 
@@ -26,25 +27,32 @@ export function Experience() {
                   {item.role}
                   <span className="text-muted"> · {item.company}</span>
                 </h3>
-                <ul className="mt-4 space-y-2.5 text-muted">
-                  {item.highlights.map(highlight => (
-                    <li
-                      key={highlight}
-                      className="relative pl-5 leading-relaxed"
-                    >
-                      <span
-                        className="absolute top-[0.7em] left-0 h-px w-2.5 bg-subtle"
-                        aria-hidden="true"
-                      />
-                      {highlight}
-                    </li>
-                  ))}
-                </ul>
+                {item.highlights && (
+                  <ul className="mt-4 space-y-2.5 text-muted">
+                    {item.highlights.map(highlight => (
+                      <li
+                        key={highlight}
+                        className="relative pl-5 leading-relaxed"
+                      >
+                        <span
+                          className="absolute top-[0.7em] left-0 h-px w-2.5 bg-subtle"
+                          aria-hidden="true"
+                        />
+                        {highlight}
+                      </li>
+                    ))}
+                  </ul>
+                )}
 
                 {item.clients && (
-                  <div className="mt-8">
+                  <div className={item.highlights ? "mt-8" : "mt-5"}>
                     <p className="eyebrow mb-3">{experience.clientsLabel}</p>
-                    <div className="grid gap-3 sm:grid-cols-2">
+                    <div
+                      className={cn(
+                        "grid gap-3",
+                        item.clients.length > 1 && "sm:grid-cols-2"
+                      )}
+                    >
                       {item.clients.map(client => (
                         <article
                           key={client.name}

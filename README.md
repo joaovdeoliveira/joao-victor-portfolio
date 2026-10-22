@@ -1,6 +1,6 @@
 # João Victor de Oliveira · Portfólio
 
-Site pessoal com experiência, projetos e formação, em português e inglês.
+Site pessoal com experiência e formação, em português e inglês.
 
 **Online:** https://joaovdeoliveira.github.io/joao-victor-portfolio/
 
@@ -34,7 +34,7 @@ Abra http://localhost:3000/joao-victor-portfolio/
 
 Os textos ficam separados dos componentes:
 
-- `client/src/data/content.ts`: textos em PT e EN (hero, sobre, experiência, projetos, formação, contato)
+- `client/src/data/content.ts`: textos em PT e EN (hero, sobre, experiência, formação, contato)
 - `client/src/data/certificates.ts`: lista de certificados
 - `client/src/data/site.ts`: nome, e-mail, links e o caminho do PDF do currículo (`cvPath`)
 

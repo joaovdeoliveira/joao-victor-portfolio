@@ -9,7 +9,7 @@ export function Footer() {
     <footer className="border-t border-border">
       <div className="container-page flex flex-col gap-3 py-8 text-xs text-subtle sm:flex-row sm:items-center sm:justify-between">
         <p>
-          © {new Date().getFullYear()} {site.name}. {t.footer.builtWith}
+          © {new Date().getFullYear()} {site.name}. {t.footer.rights}
         </p>
         <a
           href="#top"

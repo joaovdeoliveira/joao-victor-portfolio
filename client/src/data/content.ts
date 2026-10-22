@@ -4,7 +4,6 @@ const pt: Content = {
   nav: [
     { id: "sobre", label: "Sobre" },
     { id: "experiencia", label: "Experiência" },
-    { id: "projetos", label: "Projetos" },
     { id: "formacao", label: "Formação" },
     { id: "contato", label: "Contato" },
   ],
@@ -50,10 +49,16 @@ const pt: Content = {
         period: "04/2026",
         location: "São Paulo, SP",
         current: true,
-        highlights: [
-          "Diagnóstico e correção de incidentes em produção, mantendo a estabilidade e a continuidade das aplicações.",
-          "Sustentação de sistemas legados de missão crítica, com foco em integridade operacional e redução de riscos.",
-          "Participação em iniciativas de modernização para reduzir dívida técnica e melhorar performance e escalabilidade.",
+        clients: [
+          {
+            name: "Bradesco",
+            summary: "Sustentação e modernização de sistemas",
+            highlights: [
+              "Diagnóstico e correção de incidentes em produção, mantendo a estabilidade e a continuidade das aplicações.",
+              "Sustentação de sistemas legados de missão crítica, com foco em integridade operacional e redução de riscos.",
+              "Participação em iniciativas de modernização para reduzir dívida técnica e melhorar performance e escalabilidade.",
+            ],
+          },
         ],
       },
       {
@@ -99,41 +104,6 @@ const pt: Content = {
       },
     ],
   },
-  projects: {
-    label: "Projetos",
-    title: "Projetos e estudos",
-    intro:
-      "Alguns repositórios públicos, de desafios técnicos a sites publicados.",
-    repo: "Código",
-    live: "Site",
-    items: [
-      {
-        name: "Compra Programada de Ações",
-        kind: "Desafio técnico",
-        description:
-          "Backend de compra programada de ações (carteira Top Five): adesão de clientes, importação de cotações COTAHIST da B3, motor de compra com lote padrão e fracionário, custódia de resíduos e eventos de IR publicados no Kafka.",
-        stack: [".NET 8", "EF Core", "MySQL", "Kafka", "Docker"],
-        repoUrl: "https://github.com/joaovdeoliveira/teste-itau",
-      },
-      {
-        name: "Decolando Your English",
-        kind: "Site para cliente",
-        description:
-          "Site de aulas de inglês online com identidade visual de aviação, tema claro e escuro e formulário que monta a mensagem da aula experimental e abre o WhatsApp.",
-        stack: ["React", "TypeScript", "Vite", "Vitest"],
-        repoUrl: "https://github.com/joaovdeoliveira/decolando-english",
-        liveUrl: "https://joaovdeoliveira.github.io/decolando-english/",
-      },
-      {
-        name: "API de Pedidos",
-        kind: "Desafio técnico",
-        description:
-          "API REST de pedidos com CRUD completo, persistência em SQLite, documentação Swagger e testes de integração.",
-        stack: ["Node.js", "Express", "SQLite", "Jest"],
-        repoUrl: "https://github.com/joaovdeoliveira/teste-api-pedidos",
-      },
-    ],
-  },
   education: {
     label: "Formação",
     title: "Formação e certificados",
@@ -167,7 +137,7 @@ const pt: Content = {
     copied: "Copiado",
   },
   footer: {
-    builtWith: "Feito com React, Vite e Tailwind.",
+    rights: "Todos os direitos reservados.",
     backToTop: "Voltar ao topo",
   },
   a11y: {
@@ -182,7 +152,6 @@ const en: Content = {
   nav: [
     { id: "sobre", label: "About" },
     { id: "experiencia", label: "Experience" },
-    { id: "projetos", label: "Projects" },
     { id: "formacao", label: "Education" },
     { id: "contato", label: "Contact" },
   ],
@@ -228,10 +197,16 @@ const en: Content = {
         period: "04/2026",
         location: "São Paulo, Brazil",
         current: true,
-        highlights: [
-          "Diagnosing and fixing production issues to keep applications stable, reliable and running.",
-          "Ongoing support for mission-critical legacy systems, focused on operational integrity and risk mitigation.",
-          "Taking part in modernization initiatives that reduce technical debt and improve performance and scalability.",
+        clients: [
+          {
+            name: "Bradesco",
+            summary: "Systems support and modernization",
+            highlights: [
+              "Diagnosing and fixing production issues to keep applications stable, reliable and running.",
+              "Ongoing support for mission-critical legacy systems, focused on operational integrity and risk mitigation.",
+              "Taking part in modernization initiatives that reduce technical debt and improve performance and scalability.",
+            ],
+          },
         ],
       },
       {
@@ -277,41 +252,6 @@ const en: Content = {
       },
     ],
   },
-  projects: {
-    label: "Projects",
-    title: "Projects and studies",
-    intro:
-      "A few public repositories, from technical challenges to live websites.",
-    repo: "Code",
-    live: "Website",
-    items: [
-      {
-        name: "Scheduled Stock Purchase",
-        kind: "Technical challenge",
-        description:
-          "Backend for scheduled stock purchases (Top Five basket): client onboarding, B3 COTAHIST quote import, a purchase engine handling standard and fractional lots, residual custody and tax events published to Kafka.",
-        stack: [".NET 8", "EF Core", "MySQL", "Kafka", "Docker"],
-        repoUrl: "https://github.com/joaovdeoliveira/teste-itau",
-      },
-      {
-        name: "Decolando Your English",
-        kind: "Client website",
-        description:
-          "Website for online English lessons with an aviation-themed identity, light and dark themes and a form that builds the trial-lesson message and opens WhatsApp.",
-        stack: ["React", "TypeScript", "Vite", "Vitest"],
-        repoUrl: "https://github.com/joaovdeoliveira/decolando-english",
-        liveUrl: "https://joaovdeoliveira.github.io/decolando-english/",
-      },
-      {
-        name: "Orders API",
-        kind: "Technical challenge",
-        description:
-          "REST API for orders with full CRUD, SQLite persistence, Swagger docs and integration tests.",
-        stack: ["Node.js", "Express", "SQLite", "Jest"],
-        repoUrl: "https://github.com/joaovdeoliveira/teste-api-pedidos",
-      },
-    ],
-  },
   education: {
     label: "Education",
     title: "Education and certificates",
@@ -345,7 +285,7 @@ const en: Content = {
     copied: "Copied",
   },
   footer: {
-    builtWith: "Built with React, Vite and Tailwind.",
+    rights: "All rights reserved.",
     backToTop: "Back to top",
   },
   a11y: {

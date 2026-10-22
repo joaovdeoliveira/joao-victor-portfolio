@@ -17,17 +17,8 @@ export interface ExperienceItem {
   period: string;
   location: string;
   current?: boolean;
-  highlights: string[];
+  highlights?: string[];
   clients?: ExperienceClient[];
-}
-
-export interface Project {
-  name: string;
-  kind: string;
-  description: string;
-  stack: string[];
-  repoUrl?: string;
-  liveUrl?: string;
 }
 
 export interface EducationItem {
@@ -72,14 +63,6 @@ export interface Content {
     clientsLabel: string;
     items: ExperienceItem[];
   };
-  projects: {
-    label: string;
-    title: string;
-    intro: string;
-    repo: string;
-    live: string;
-    items: Project[];
-  };
   education: {
     label: string;
     title: string;
@@ -96,7 +79,7 @@ export interface Content {
     copied: string;
   };
   footer: {
-    builtWith: string;
+    rights: string;
     backToTop: string;
   };
   a11y: {
