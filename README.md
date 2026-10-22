@@ -9,7 +9,7 @@ Site pessoal com experiência e formação, em português e inglês.
 - React 19 + TypeScript + Vite
 - Tailwind CSS v4
 - Framer Motion para as animações de entrada
-- Background [Threads](https://reactbits.dev/backgrounds/threads) da React Bits (WebGL)
+- Background [Threads](https://reactbits.dev/backgrounds/threads) da React Bits (WebGL), adaptado para acompanhar o scroll: avança ao descer e volta ao subir (`client/src/components/PageBackground.tsx`)
 
 ## Como rodar
 

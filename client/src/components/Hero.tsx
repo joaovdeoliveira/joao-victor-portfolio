@@ -4,10 +4,9 @@ import { FaLinkedin } from "react-icons/fa";
 import { SiGithub } from "react-icons/si";
 import { site } from "@/data/site";
 import { usePreferences } from "@/lib/preferences";
-import Threads from "./backgrounds/Threads";
 
 export function Hero() {
-  const { t, theme } = usePreferences();
+  const { t } = usePreferences();
   const reduce = useReducedMotion();
 
   const fadeUp = (delay: number) => ({
@@ -21,22 +20,7 @@ export function Hero() {
   });
 
   return (
-    <section
-      id="top"
-      className="relative isolate flex min-h-[100svh] items-end overflow-hidden"
-    >
-      <div className="absolute inset-0 -z-10" aria-hidden="true">
-        <Threads
-          color={theme === "dark" ? "#e4e4e7" : "#18181b"}
-          amplitude={1.2}
-          distance={0.2}
-          enableMouseInteraction
-          opacity={theme === "dark" ? 0.55 : 0.4}
-          fade={0.15}
-        />
-        <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-background via-background/80 to-transparent" />
-      </div>
-
+    <section id="top" className="relative flex min-h-[100svh] items-end">
       <div className="container-page pt-32 pb-16 md:pb-24">
         <motion.p
           {...fadeUp(0)}
